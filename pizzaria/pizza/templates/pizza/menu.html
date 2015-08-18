@@ -5,9 +5,13 @@
 
 	<body>
 		<h1> Django Pizza Place </h1>	
-		<ul>
+		<ul style="list-style-type: none">
 		{% for pizza in pizzas %}
 			<li>
+				{% if pizza.picture %}
+				<img src="{{ pizza.picture.url }}" 
+					width="100px" alt="Picture of {{pizza.name}}"/>				
+				{% endif %}
 				<h2>{{ pizza.name }} (R$ {{pizza.price}})</h2> 
 				<div>{{ pizza.ingredients }}</div>
 				<hr>
